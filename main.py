@@ -13,6 +13,10 @@ users = db.reference("/users/")
 class User:
     def __init__(self, userid):
         self.user_ref = db.reference("/users/"+str(userid))
+        self.userid = userid
+        self.username = self.user_ref.child("username").get()
+        self.bio = self.user_ref.child("bio").get()
+        self.status = self.user_ref.child("status").get()
         
 def gen_key(password, salt):
     return hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000, dklen=128)
