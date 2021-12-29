@@ -6,11 +6,26 @@
 </head>
 <body style="background-color: var(--bgcolor)">
     <div class="txt">
-        <p>Hello World!</p>
+        <h1>CASchat</h1>
+        <p>Welcome!</p>
     </div>
     <div class="box" style="margin-top: 0px;">
-        <p>Hello World!</p>
+        Hello World! You are visitor #<span id="website-counter"></span>.
     </div>
+    <script>
+        var counterContainer = document.getElementById("website-counter");
+        var visitCount = localStorage.getItem("page_view");
+
+        visitCount = 1;
+        //Add entry for key="page_view"
+        localStorage.setItem("page_view", 1);
+
+        visitCount = Number(visitCount) + 1;
+
+        // Update local storage value
+        localStorage.setItem("page_view", visitCount);
+        counterContainer.innerHTML = visitCount;
+    </script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
