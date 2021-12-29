@@ -1,4 +1,4 @@
-var counterContainer = document.querySelector("website-counter");
+var counterContainer = document.getElementById("website-counter");
 var visitCount = localStorage.getItem("page_view");
 
 // Check if page_view entry is present
